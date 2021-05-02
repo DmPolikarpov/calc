@@ -1,13 +1,15 @@
 from tkinter import *
 from decimal import *
 from pygame import *
+#new window of the calculator
 window = Tk()
-#какой-то комментарий
+#logotype of the application
 img = PhotoImage(file = 'calc.gif')
 imgLb = Label(window, image = img).grid(row = 1, columnspan = 6)
 scrLb = Label(window, relief = 'sunken', bd = 10,\
 font = ('Times New Roman', 30), width = 16, justify = RIGHT)
 scrLb.grid(row = 2, columnspan = 6)
+#buttons of the calculator
 btn0 = Button(window, relief = 'raised',\
  font = ('Times New Roman', 18), width = 4, text = '0', command = lambda text = '0': click(text)).grid(row = 18, column = 1)
 btn1 = Button(window, relief = 'raised',  bd = 5,\
@@ -50,8 +52,8 @@ rezBtn = Button(window, relief = 'raised',  bd = 5,\
  font = ('Times New Roman', 18), width = 4, text = '=', command = lambda text = '=': click(text)).grid(row = 18, column = 4)
 
 
-
-window.title('privet')
+#title
+window.title('calculator')
 window.resizable(0, 0)
 
 
@@ -59,7 +61,7 @@ indata = []
 actStr = ''
 operation = ''
 
-
+#creates all characters on the display of the calculator
 def click(text):
 	global indata
 	global actStr
@@ -122,7 +124,7 @@ def click(text):
 		prc = - prc
 		scrLb.configure(text = prc)
 
-
+#makes all calculations
 def calculate():
 	global indata
 	global actStr
